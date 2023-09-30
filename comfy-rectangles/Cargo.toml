@@ -4,4 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-comfy = "0.1.1"
+comfy = { version = "0.1.1", features = ["tracy", "dev"] }
+# comfy = { path = "../comfy/comfy", features = ["tracy", "dev"] }

@@ -1,8 +1,20 @@
 [workspace]
 resolver = "2"
-members = ["comfy-rectangles"]
+members = ["comfy-rectangles", "comfymark", "bevymark"]
 
 [profile.dev]
 opt-level = 3
 [profile.dev.package."*"]
 opt-level = 3
+
+[profile.release]
+# lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
+
+[profile.web-release]
+inherits = "release"
+opt-level = "s"
+strip = "debuginfo"
+
