@@ -1257,8 +1257,16 @@ version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "aea2e2bb76952b1a4f4bbc9e645a3ddff8e500d77bf167baa1802e5e6d0a6a71"
 dependencies = [
- "comfy-core",
- "comfy-wgpu",
+ "comfy-core 0.1.1",
+ "comfy-wgpu 0.1.1",
+]
+
+[[package]]
+name = "comfy"
+version = "0.1.2"
+dependencies = [
+ "comfy-core 0.1.2",
+ "comfy-wgpu 0.1.2",
 ]
 
 [[package]]
@@ -1334,6 +1342,57 @@ dependencies = [
 ]
 
 [[package]]
+name = "comfy-core"
+version = "0.1.2"
+dependencies = [
+ "anymap",
+ "atomic_refcell",
+ "backtrace",
+ "bimap",
+ "bitflags 2.4.0",
+ "bytemuck",
+ "cfg-if",
+ "comfy-color-backtrace",
+ "comfy-git-version",
+ "comfy_include_dir",
+ "console_error_panic_hook",
+ "console_log",
+ "crossbeam",
+ "egui",
+ "egui-winit",
+ "env_logger",
+ "epaint",
+ "getrandom",
+ "glam",
+ "hecs",
+ "image",
+ "inline_tweak",
+ "instant",
+ "itertools",
+ "kira",
+ "lazy_static",
+ "log",
+ "maplit",
+ "notify",
+ "num-complex",
+ "num-traits",
+ "once_cell",
+ "ordered-float",
+ "parking_lot",
+ "pollster",
+ "rand",
+ "rayon",
+ "simple-easing",
+ "smallvec",
+ "spin_sleep",
+ "thunderdome",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
+ "winit",
+]
+
+[[package]]
 name = "comfy-git-version"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1352,7 +1411,7 @@ checksum = "50eddb48ea406660a999cc6587f4cc858742f7f2dc9f70f7190efa7d570bee6f"
 name = "comfy-rectangles"
 version = "0.1.0"
 dependencies = [
- "comfy",
+ "comfy 0.1.1",
 ]
 
 [[package]]
@@ -1362,11 +1421,27 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "28770d06e65a8e2229914b7d3cba779249099b81e647d59e6759798c29545f47"
 dependencies = [
  "bytemuck",
- "comfy-core",
+ "comfy-core 0.1.1",
  "egui",
  "egui-wgpu",
  "egui-winit",
  "futures-intrusive",
+ "image",
+ "web-sys",
+ "wgpu",
+ "wgpu-types",
+ "winit",
+]
+
+[[package]]
+name = "comfy-wgpu"
+version = "0.1.2"
+dependencies = [
+ "bytemuck",
+ "comfy-core 0.1.2",
+ "egui",
+ "egui-wgpu",
+ "egui-winit",
  "image",
  "web-sys",
  "wgpu",
@@ -1396,6 +1471,9 @@ dependencies = [
 [[package]]
 name = "comfymark"
 version = "0.1.0"
+dependencies = [
+ "comfy 0.1.2",
+]
 
 [[package]]
 name = "concurrent-queue"
