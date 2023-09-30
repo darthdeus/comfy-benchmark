@@ -15,7 +15,7 @@ pub fn load_assets() {
     let mut textures = Vec::new();
     let mut sounds = Vec::new();
 
-    for i in 1..=10 {
+    for i in 1..=15 {
         textures.push((format!("comfy-{}", i), format!("comfy-{}.png", i)));
         textures.push((format!("wall-{}", i), format!("wall-{}.jpg", i)));
         sounds.push((format!("music-{}", i), format!("music-{}.wav", i)));
@@ -33,7 +33,8 @@ fn update(_c: &mut EngineContext) {
     draw_text("The wedge doesn't represent loading progress. It's here to show that loading is async and doesn't halt the game",
         vec2(0.0, -3.0), WHITE, TextAlign::Center);
 
-    draw_arc_wedge(Vec2::ZERO, 2.0, 0.2, 0.0, get_time() as f32, PINK, 0);
+    // px() gives us world-space size of 1 pixel
+    draw_arc_wedge(Vec2::ZERO, 2.0, 2.0 * px(), 0.0, get_time() as f32, PINK, 0);
 
     draw_text(
         &format!(
