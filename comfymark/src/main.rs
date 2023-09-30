@@ -12,6 +12,7 @@ pub struct Comf {
 static STATE: Lazy<AtomicRefCell<Vec<Comf>>> = Lazy::new(|| AtomicRefCell::new(Vec::new()));
 
 fn setup(_c: &mut EngineContext) {
+    game_config_mut().dev.show_fps = true;
     let viewport = main_camera().world_viewport();
     let mut state = STATE.borrow_mut();
     let colors = vec![RED, GREEN, BLUE, MAGENTA, YELLOW, CYAN];
