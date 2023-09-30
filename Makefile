@@ -20,4 +20,5 @@ comfymark-tracy:
 	cargo run --bin comfymark --profile stress-test --features comfy/tracy
 
 asset-benchmark:
+	./generate-assets.sh
 	cargo run --bin comfy-asset-benchmark --features comfy/tracy
