@@ -71,3 +71,7 @@ Asset loading benchmark (WIP)
 ```sh
 make asset-benchmark
 ```
+
+## Assets
+
+Used texture is CC0 from https://cc0-textures.com/t/th-broken-wall

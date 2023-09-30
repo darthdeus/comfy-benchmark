@@ -1,5 +1,7 @@
 .PHONY: default rectangles asset-benchmark bevymark comfymark comfymark-tracy
 
+ENV_VARS=RUST_LOG=info,wgpu=warn,symphonia=warn,naga=warn RUST_BACKTRACE=1
+
 # default: rectangles
 # default: bevymark
 # default: comfymark
@@ -21,4 +23,4 @@ comfymark-tracy:
 
 asset-benchmark:
 	./generate-assets.sh
-	cargo run --bin comfy-asset-benchmark --features comfy/tracy
+	$(ENV_VARS) cargo run --bin comfy-asset-benchmark --features comfy/tracy

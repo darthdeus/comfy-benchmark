@@ -15,8 +15,9 @@ pub fn load_assets() {
     let mut textures = Vec::new();
     let mut sounds = Vec::new();
 
-    for i in 1..=1000 {
-        // textures.push((format!("comfy-{}", i), format!("comfy-{}.png", i)));
+    for i in 1..=10 {
+        textures.push((format!("comfy-{}", i), format!("comfy-{}.png", i)));
+        textures.push((format!("wall-{}", i), format!("wall-{}.jpg", i)));
         sounds.push((format!("music-{}", i), format!("music-{}.wav", i)));
     }
 
@@ -35,9 +36,16 @@ fn update(_c: &mut EngineContext) {
     draw_arc_wedge(Vec2::ZERO, 2.0, 0.2, 0.0, get_time() as f32, PINK, 0);
 
     draw_text(
-        &format!("Loaded assets: {}/{}", assets_loaded(), assets_queued_total()),
+        &format!(
+            "Loaded assets: {}/{}",
+            assets_loaded(),
+            assets_queued_total()
+        ),
         vec2(0.0, 3.0),
         WHITE,
         TextAlign::Center,
     );
+
+    draw_sprite(texture_id("comfy-10"), vec2(5.0, 0.0), WHITE, 0, splat(3.0));
+    draw_sprite(texture_id("wall-10"), vec2(-5.0, 0.0), WHITE, 0, splat(3.0));
 }
