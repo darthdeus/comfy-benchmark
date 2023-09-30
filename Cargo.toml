@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["comfy-rectangles", "comfymark", "bevymark"]
+members = ["comfy-asset-benchmark", "comfy-rectangles", "comfymark", "bevymark"]
 
 [profile.dev]
 opt-level = 3

@@ -1270,6 +1270,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "comfy-asset-benchmark"
+version = "0.1.0"
+dependencies = [
+ "comfy 0.1.2",
+]
+
+[[package]]
 name = "comfy-color-backtrace"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
