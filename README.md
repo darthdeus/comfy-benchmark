@@ -40,6 +40,14 @@ around 50-55 FPS, while Comfy does around 35k sprites at ~50 FPS.
 
 ## Running benchmarks
 
+All these benchmarks assume Comfy is cloned into a sibling repository. While
+this is slightly inconvenient, it makes it much easier once you start tweaking
+things and want to see how it affects performance. Simply `git clone
+https://github.com/darthdeus/comfy` and put it in the right place and
+everything should work.
+
+The bevymark uses the latest release of bevy.
+
 Comfy bunnymark
 
 ```sh
