@@ -18,3 +18,7 @@ inherits = "release"
 opt-level = "s"
 strip = "debuginfo"
 
+[profile.stress-test]
+inherits = "release"
+# lto = "fat"
+panic = "abort"

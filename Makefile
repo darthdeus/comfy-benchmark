@@ -7,4 +7,5 @@ rectangles:
 	cargo run --bin comfy-rectangles --release
 
 bevymark:
-	cargo run --bin bevymark --release
+	# cargo run --bin bevymark --release
+	cargo run --bin bevymark --profile stress-test

@@ -32,7 +32,7 @@ fn main() {
         .add_plugins((
             DefaultPlugins.set(WindowPlugin {
                 primary_window: Some(Window {
-                    title: "BevyMark".into(),
+                    title: "BevyMark FLOAT".into(),
                     resolution: (800., 600.).into(),
                     present_mode: PresentMode::AutoNoVsync,
                     ..default()
@@ -101,7 +101,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     // Added manually
     warn!("This is a stress test used to push Bevy to its limit and debug performance issues. It is not representative of an actual game. It must be run in release mode using --release or it will be very slow.");
 
-    let texture = asset_server.load("branding/icon.png");
+    let texture = asset_server.load("bird.png");
 
     let text_section = move |color, value: &str| {
         TextSection::new(
@@ -158,18 +158,34 @@ fn mouse_handler(
 ) {
     let window = windows.single();
 
-    if mouse_button_input.just_released(MouseButton::Left) {
-        let mut rng = thread_rng();
-        counter.color = Color::rgb_linear(rng.gen(), rng.gen(), rng.gen());
-    }
+    // if mouse_button_input.just_released(MouseButton::Left) {
+    //     let mut rng = thread_rng();
+    //     counter.color = Color::rgb_linear(rng.gen(), rng.gen(), rng.gen());
+    // }
+    //
+    // if mouse_button_input.pressed(MouseButton::Left) {
+    //     let spawn_count = (BIRDS_PER_SECOND as f64 * time.delta_seconds_f64()) as usize;
+    //     spawn_birds(
+    //         &mut commands,
+    //         &window.resolution,
+    //         &mut counter,
+    //         spawn_count,
+    //         bird_texture.clone_weak(),
+    //     );
+    // }
 
-    if mouse_button_input.pressed(MouseButton::Left) {
+    // if mouse_button_input.just_released(MouseButton::Left) {
+    //     let mut rng = thread_rng();
+    //     counter.color = Color::rgb_linear(rng.gen(), rng.gen(), rng.gen());
+    // }
+
+    if mouse_button_input.just_pressed(MouseButton::Left) {
         let spawn_count = (BIRDS_PER_SECOND as f64 * time.delta_seconds_f64()) as usize;
         spawn_birds(
             &mut commands,
             &window.resolution,
             &mut counter,
-            spawn_count,
+            120000,
             bird_texture.clone_weak(),
         );
     }
