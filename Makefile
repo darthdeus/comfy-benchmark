@@ -4,9 +4,9 @@ ENV_VARS=RUST_LOG=info,wgpu=warn,symphonia=warn,naga=warn RUST_BACKTRACE=1
 
 # default: rectangles
 # default: bevymark
-# default: comfymark
+default: comfymark-tracy
 # default: comfymark-tracy
-default: asset-benchmark
+# default: asset-benchmark
 
 rectangles:
 	cargo run --bin comfy-rectangles --release

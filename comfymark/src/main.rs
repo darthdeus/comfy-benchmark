@@ -17,7 +17,7 @@ fn setup(_c: &mut EngineContext) {
     let mut state = STATE.borrow_mut();
     let colors = vec![RED, GREEN, BLUE, MAGENTA, YELLOW, CYAN];
 
-    for _ in 0..35000 {
+    for _ in 0..120000 {
         state.push(Comf {
             position: random_box(Vec2::ZERO, viewport),
             velocity: random_dir() * 10.0,
@@ -31,6 +31,8 @@ fn update(_c: &mut EngineContext) {
     let viewport = main_camera().world_viewport() / 2.0;
     let delta = delta();
     const GRAVITY: f32 = -10.0;
+
+    let handle = texture_id("_builtin-comfy");
 
     for comf in STATE.borrow_mut().iter_mut() {
         comf.position += comf.velocity * delta;
@@ -52,11 +54,11 @@ fn update(_c: &mut EngineContext) {
             comf.velocity.y = -vy;
         }
 
-        draw_comfy(comf.position, comf.color, 0, comf.size);
+        draw_sprite(handle, comf.position, comf.color, 0, comf.size);
     }
 
     let top_left = main_camera().screen_top_left();
-    draw_rect(top_left + vec2(1.0, -0.5), vec2(2.5, 1.0), BLACK, 5);
+    draw_rect(top_left + vec2(1.0, -0.5), vec2(3.5, 1.0), BLACK, 5);
 
     draw_text(
         &format!("{} FPS", get_fps()),
@@ -65,7 +67,7 @@ fn update(_c: &mut EngineContext) {
         TextAlign::TopLeft,
     );
     draw_text(
-        &format!("{} comfs", STATE.borrow().len()),
+        &format!("{} comfys", STATE.borrow().len()),
         top_left + vec2(0.0, -0.5),
         GREEN,
         TextAlign::TopLeft,
