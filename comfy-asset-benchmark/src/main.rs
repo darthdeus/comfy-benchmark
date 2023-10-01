@@ -15,7 +15,7 @@ pub fn load_assets() {
     let mut textures = Vec::new();
     let mut sounds = Vec::new();
 
-    for i in 1..=15 {
+    for i in 1..=50 {
         textures.push((format!("comfy-{}", i), format!("comfy-{}.png", i)));
         textures.push((format!("wall-{}", i), format!("wall-{}.jpg", i)));
         sounds.push((format!("music-{}", i), format!("music-{}.wav", i)));
