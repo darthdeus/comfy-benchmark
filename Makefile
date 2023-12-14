@@ -1,6 +1,6 @@
 .PHONY: default rectangles asset-benchmark bevymark comfymark comfymark-tracy
 
-ENV_VARS=RUST_LOG=info,wgpu=warn,symphonia=warn,naga=warn RUST_BACKTRACE=1
+ENV_VARS=RUST_LOG=info,wgpu=warn,symphonia=warn,naga=warn RUST_BACKTRACE=1 COMFY_VSYNC_OVERRIDE=0
 
 # default: rectangles
 # default: bevymark

@@ -22,3 +22,6 @@ strip = "debuginfo"
 inherits = "release"
 # lto = "fat"
 panic = "abort"
+
+[workspace.dependencies]
+comfy = { path = "../comfy/comfy", features = ["tracy", "dev"] }
