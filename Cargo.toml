@@ -20,8 +20,9 @@ strip = "debuginfo"
 
 [profile.stress-test]
 inherits = "release"
-# lto = "fat"
+lto = "fat"
 panic = "abort"
+debug = true
 
 [workspace.dependencies]
-comfy = { path = "../comfy/comfy", features = ["tracy", "dev"] }
+comfy = { path = "../comfy/comfy", features = ["dev"] }

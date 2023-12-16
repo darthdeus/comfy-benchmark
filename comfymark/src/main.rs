@@ -1,6 +1,6 @@
 use comfy::*;
 
-simple_game!("Comfymark FLOAT", setup, update);
+simple_game!("Comfymark FLOAT", GameState, config, setup, update);
 
 pub struct Comf {
     pub position: Vec2,
@@ -9,9 +9,25 @@ pub struct Comf {
     pub color: Color,
 }
 
+pub struct GameState {}
+
+impl GameState {
+    pub fn new(_c: &mut EngineState) -> Self {
+        Self {}
+    }
+}
+
+fn config(config: GameConfig) -> GameConfig {
+    GameConfig {
+        target_framerate: 1000,
+        vsync_enabled: false,
+        ..config
+    }
+}
+
 static STATE: Lazy<AtomicRefCell<Vec<Comf>>> = Lazy::new(|| AtomicRefCell::new(Vec::new()));
 
-fn setup(_c: &mut EngineContext) {
+fn setup(_state: &mut GameState, _c: &mut EngineContext) {
     game_config_mut().dev.show_fps = true;
     let viewport = main_camera().world_viewport();
     let mut state = STATE.borrow_mut();
@@ -27,7 +43,7 @@ fn setup(_c: &mut EngineContext) {
     }
 }
 
-fn update(_c: &mut EngineContext) {
+fn update(_state: &mut GameState, _c: &mut EngineContext) {
     let viewport = main_camera().world_viewport() / 2.0;
     let delta = delta();
     const GRAVITY: f32 = -10.0;
